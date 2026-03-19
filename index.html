@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контент-стратегия | Магазин тактического снаряжения</title>
+    <title>Контент-стратегия | Тактическое снаряжение</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --surface-color: #1a1a1a;
-            --primary-accent: #4b5320; /* Olive Drab */
-            --secondary-accent: #8b7355; /* Coyote */
-            --text-main: #e0e0e0;
-            --text-dim: #a0a0a0;
-            --border-color: #333333;
+            --bg-color: #0f100f;
+            --surface-color: #1a1c1a;
+            --primary-accent: #3d4621; /* Dark Olive */
+            --secondary-accent: #7d6748; /* Coyote */
+            --text-main: #d1d1d1;
+            --text-dim: #888888;
+            --border-color: #2d2d2d;
             --white: #ffffff;
+            --accent-light: #556031;
         }
 
         * {
@@ -23,165 +24,140 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace; /* Для придания стиля военных документов */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
-            padding: 20px;
+            line-height: 1.5;
+            padding: 15px;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         header {
-            border-left: 5px solid var(--primary-accent);
-            padding-left: 20px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
+            border-bottom: 2px solid var(--primary-accent);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         h1 {
-            font-size: 2rem;
-            letter-spacing: 2px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             color: var(--white);
         }
 
-        .section-title {
+        .section-header {
             background: var(--primary-accent);
             color: var(--white);
-            padding: 10px 15px;
-            display: inline-block;
+            padding: 12px 20px;
             text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            width: 100%;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin: 40px 0 20px 0;
+            border-left: 8px solid var(--secondary-accent);
         }
 
-        .block {
+        .card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
-            padding: 25px;
-            margin-bottom: 30px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
         h2 {
             color: var(--secondary-accent);
+            font-size: 1.2rem;
+            text-transform: uppercase;
             margin-bottom: 15px;
-            font-size: 1.4rem;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
+            padding-bottom: 5px;
         }
 
         h3 {
             color: var(--white);
-            margin-top: 20px;
-            margin-bottom: 10px;
             font-size: 1.1rem;
+            margin: 15px 0 10px 0;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 15px 0;
-        }
-
-        .stat-item {
-            border: 1px solid var(--border-color);
-            padding: 10px;
+        .link-block {
+            margin: 10px 0;
             font-size: 0.9rem;
         }
 
-        .stat-label {
-            color: var(--text-dim);
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: var(--primary-accent);
-        }
-
-        .tov-box {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .tov-item {
-            background: rgba(75, 83, 32, 0.1);
-            padding: 15px;
-            border-left: 3px solid var(--primary-accent);
-        }
-
-        .module-compare {
-            margin-top: 15px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .module-old {
-            color: var(--text-dim);
-            text-decoration: line-through;
-            font-size: 0.9rem;
-        }
-
-        .module-new {
-            color: var(--white);
-            font-weight: bold;
-            border-left: 2px solid var(--secondary-accent);
-            padding-left: 10px;
-        }
-
-        .rubric-type {
-            font-weight: bold;
-            color: var(--primary-accent);
-            text-transform: uppercase;
-            margin-top: 20px;
-            display: block;
-            border-bottom: 2px solid var(--primary-accent);
-        }
-
-        .taboo {
-            border: 1px solid #662222;
-            padding: 15px;
-            background: rgba(102, 34, 34, 0.1);
-        }
-
-        a {
-            color: var(--secondary-accent);
+        .link-block a {
+            color: var(--accent-light);
             text-decoration: none;
+            word-break: break-all;
         }
 
-        a:hover {
+        .link-block a:hover {
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            .tov-box, .module-compare {
-                grid-template-columns: 1fr;
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
+        .meta-info {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 10px;
+            background: rgba(0,0,0,0.2);
+            padding: 8px;
+            border-radius: 2px;
+        }
+
+        .tov-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tov-card {
+            border: 1px dashed var(--secondary-accent);
+            padding: 15px;
+        }
+
+        .comparison {
+            margin-top: 20px;
+            padding: 15px;
+            background: #000;
+            border-left: 4px solid var(--secondary-accent);
+        }
+
+        .old-text { color: #666; text-decoration: line-through; font-size: 0.85rem; margin-bottom: 5px; }
+        .new-text { color: var(--white); font-weight: bold; }
+
+        .rubric-category {
+            margin-top: 30px;
+            border-left: 3px solid var(--accent-light);
+            padding-left: 15px;
+        }
+
+        .rubric-title {
+            color: var(--accent-light);
+            font-weight: bold;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background: rgba(125, 103, 72, 0.1);
+            padding: 10px;
+            margin-top: 5px;
+            font-style: italic;
+            border: 1px solid rgba(125, 103, 72, 0.2);
+        }
+
+        ul { list-style: none; }
+        li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        li::before { content: ">"; position: absolute; left: 0; color: var(--secondary-accent); }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.4rem; }
+            .card { padding: 15px; }
         }
     </style>
 </head>
@@ -190,131 +166,151 @@
 <div class="container">
     <header>
         <h1>Контент-стратегия</h1>
-        <p style="color: var(--text-dim);">Магазин тактического снаряжения | 2024-2025</p>
+        <p style="color: var(--text-dim); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Магазин тактического снаряжения</p>
     </header>
 
-    <!-- БЛОК 1: АНАЛИЗ КОНКУРЕНТОВ -->
-    <section>
-        <div class="section-title">Анализ конкурентов</div>
+    <!-- БЛОК 1 -->
+    <div class="section-header">1. Анализ конкурентов</div>
+
+    <div class="card">
+        <h2>Тольятти</h2>
         
-        <div class="block">
-            <h2>1. Тольятти</h2>
-            <h3>1.1 БУЛАТ | Центр Военно-Тактического Снаряжения</h3>
-            <div class="stats-grid">
-                <div class="stat-item"><span class="stat-label">ВК</span>23 031 подп. / 400-700 просм.</div>
-                <div class="stat-item"><span class="stat-label">ТГ</span>207 подп. / 60-70 просм.</div>
-                <div class="stat-item"><span class="stat-label">Постинг</span>1 пост ежедневно</div>
-            </div>
-            <p><strong>Контент:</strong> Продуктово-информационные посты ("В наличии", "График работы"). Минимальная работа с вовлечением.</p>
-            
-            <h3>1.2 PROFI TACTICAL</h3>
-            <div class="stats-grid">
-                <div class="stat-item"><span class="stat-label">ВК</span>1 434 подп. / 50-100 просм.</div>
-                <div class="stat-item"><span class="stat-label">Постинг</span>3-5 постов (не ежедневно)</div>
-            </div>
-            <p><strong>Контент:</strong> Сугубо продуктовые посты без глубокого описания.</p>
+        <h3>1.1 БУЛАТ | Центр Военно-Тактического Снаряжения</h3>
+        <div class="link-block">
+            ВК: <a href="https://vk.com/vitiazbulat">https://vk.com/vitiazbulat</a><br>
+            ТГ: <a href="https://t.me/Bulat63tlt">https://t.me/Bulat63tlt</a>
         </div>
-
-        <div class="block">
-            <h2>2. Другие города</h2>
-            <h3>2.1 Abbat (Санкт-Петербург)</h3>
-            <p>17 957 подп. ВК. Делают розыгрыши, праздничный контент, редкие разборы материалов. Постинг раз в несколько дней.</p>
-            
-            <h3>2.2 JAEGER EQUIPMENT (Санкт-Петербург)</h3>
-            <p>31 882 подп. ВК. Высокие охваты (до 40к). Акцент на видеообзоры, новости и акции. Ежедневный постинг.</p>
-            
-            <h3>2.3 ATG (Киров)</h3>
-            <p>В ТГ к товарам добавляют репосты и личные размышления на военную тематику. Снимают шоу "Прилет". Высокий уровень лояльности.</p>
-            
-            <h3>2.4 T-ARMIS (Хабаровск)</h3>
-            <p>23 565 подп. ВК. Нестабильный график постинга, но хороший охват на видеообзорах.</p>
+        <div class="meta-info">
+            ВК: 23 031 подп., 400-700 просм. | ТГ: 207 подп., 60-70 просм.<br>
+            Частота: 1 пост ежедневно.
         </div>
+        <p>Анализ: Продуктовые и информационные посты ("В наличии", "График работы").</p>
 
-        <div class="block">
-            <p><strong>ВЫВОД:</strong> Большинство конкурентов используют соцсети как "витрину-склад". Отсутствует системная работа с экспертностью и формированием комьюнити.</p>
+        <h3>1.2 PROFI TACTICAL</h3>
+        <div class="link-block">
+            ВК: <a href="https://vk.com/profi_tactical">https://vk.com/profi_tactical</a>
         </div>
-
-        <div class="block">
-            <h2>3. Ориентир: ALLMULTICAM</h2>
-            <p>66 000+ подписчиков. Эталон в плане мультиплатформенности (ВК, ТГ, YouTube, Дзен, Rutube). Контент: статьи, экспертные карточки, профессиональные клипы.</p>
+        <div class="meta-info">
+            1 434 подп., 50-100 просм. Постинг 3-5 раз в неделю.
         </div>
-    </section>
+        <p>Анализ: Простые продуктовые посты с каталожной логикой.</p>
+    </div>
 
-    <!-- БЛОК 2: TONE OF VOICE -->
-    <section>
-        <div class="section-title">Tone of Voice (ToV)</div>
-        <div class="block">
-            <h2>Концепция: «Свой среди своих» + «Эксперт-инструктор»</h2>
-            
-            <div class="tov-box">
-                <div class="tov-item">
-                    <h3>Экспертность</h3>
-                    <p>Объясняем физику процесса: почему конкретная стропа или ткань подходит под задачу.</p>
-                </div>
-                <div class="tov-item">
-                    <h3>Мужественность</h3>
-                    <p>Лаконично, без воды и лишних украшательств. Только факты.</p>
-                </div>
-                <div class="tov-item">
-                    <h3>Честность</h3>
-                    <p>Не боимся говорить о минусах. Ткань тяжелее — зато прочнее. Это вызывает доверие.</p>
-                </div>
-                <div class="tov-item">
-                    <h3>Уважение</h3>
-                    <p>Общаемся на равных. Мы знаем боли аудитории (натертые лямки, сползающий пояс).</p>
-                </div>
-            </div>
-
-            <h3 style="margin-top:30px;">Трансформация речи</h3>
-            <div class="module-compare">
-                <div class="module-old">Купить бронеплиту по выгодной цене.</div>
-                <div class="module-new">Плита 4-го класса. Выдерживает СВД с 10 метров. Вес — 2.7 кг. Если таскать сутками — плечи скажут спасибо.</div>
-            </div>
-            <div class="module-compare">
-                <div class="module-old">Тактические штаны со скидкой.</div>
-                <div class="module-new">Штаны из рипстопа. Усиление в коленях. Карманы спроектированы так, что магазин АК не выпадет, когда сидишь в засаде.</div>
-            </div>
-
-            <div class="taboo" style="margin-top:30px;">
-                <h3>Табу</h3>
-                <ul>
-                    <li>Канцелярит ("Осуществляем продажу", "Высококачественный").</li>
-                    <li>Скрытые цены ("Цена по запросу").</li>
-                    <li>Политические лозунги и призывы.</li>
-                    <li>Панибратство без причины.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- БЛОК 3: РУБРИКАТОР -->
-    <section>
-        <div class="section-title">Рубрикатор</div>
+    <div class="card">
+        <h2>Другие города</h2>
         
-        <div class="block">
-            <span class="rubric-type">А. Продающий контент (20-30%)</span>
-            <h3>Рубрика: Решение задач</h3>
-            <p>Контент под сценарии: "Выход на дозор", "Штурм", "Длительный переход". Презентация товара через решение проблемы.</p>
-            <h3>Рубрика: Новинка / Уценка</h3>
-            <p>Технические характеристики, совместимость, честная причина скидки (если уценка).</p>
-
-            <span class="rubric-type">Б. Экспертный контент (40%) — Ядро</span>
-            <h3>Рубрика: Матчасть</h3>
-            <p>Разбор материалов: Кордура vs Оксфорд, классы защиты, типы фурнитуры (YKK, ITW). Формат: карточки.</p>
-            <h3>Рубрика: Тест-драйв</h3>
-            <p>Товар в реальных условиях: грязь, вода, трение. "Потертости — это круто, это история".</p>
-
-            <span class="rubric-type">В. Вовлекающий контент (20%)</span>
-            <h3>Рубрика: Битва концепций</h3>
-            <p>СМЕРШ или М32? Глок или ПМ? Провоцируем конструктивный спор в комментариях.</p>
-            <h3>Рубрика: Субботнее чтиво</h3>
-            <p>История снаряжения. Как появился камуфляж, почему АК именно такой.</p>
-
-            <span class="rubric-type">Г. Имиджевый контент (10%)</span>
-            <h3>Рубрика: Наши люди</h3>
-            <p>Кейсы: собрали комплект для снайпера, изготовили партию шевронов для подразделения.</p>
+        <h3>2.1 Санкт-Петербург | Abbat</h3>
+        <div class="link-block">
+            ВК: <a href="https://vk.com/abbat_tactical">https://vk.com/abbat_tactical</a>
         </div>
-    </section>
+        <div class="meta-info">17 957 подп., 300-600 просм. Раз в несколько дней.</div>
+        <p>Анализ: Розыгрыши, факты о ВС, разборы материалов. Ссылки часто без описания.</p>
+
+        <h3>2.2 Санкт-Петербург | JAEGER EQUIPMENT</h3>
+        <div class="link-block">
+            ВК: <a href="https://vk.com/jaeger_equip">https://vk.com/jaeger_equip</a>
+        </div>
+        <div class="meta-info">31 882 подп., 2000-5000 (до 40000) просм. Ежедневно.</div>
+        <p>Анализ: Качественный фотоконтент, видеообзоры, новости и акции.</p>
+
+        <h3>2.3 Киров | ATG</h3>
+        <div class="link-block">
+            ВК: <a href="https://vk.com/atg43">https://vk.com/atg43</a><br>
+            ТГ: <a href="https://t.me/atg43eqp">https://t.me/atg43eqp</a><br>
+            ИГ: <a href="https://www.instagram.com/a.t.g.43/">https://www.instagram.com/a.t.g.43/</a><br>
+            Шоу «Прилет»: <a href="https://t.me/prilet_show">https://t.me/prilet_show</a>
+        </div>
+        <p>Анализ: Размышления на военную тематику, репосты, нативная подача. Сильный акцент на YouTube-форматы.</p>
+
+        <h3>2.4 Хабаровск | T-ARMIS</h3>
+        <div class="link-block">
+            ВК: <a href="https://vk.com/tarmis">https://vk.com/tarmis</a><br>
+            ТГ: <a href="https://t.me/tarmis_ru">https://t.me/tarmis_ru</a>
+        </div>
+        <p>Анализ: Информационные посты разбавлены видеообзорами. Постинг нестабильный.</p>
+    </div>
+
+    <div class="card">
+        <h2>Эталон: ALLMULTICAM</h2>
+        <div class="link-block">
+            ВК: <a href="https://vk.com/allmulticam">vk.com/allmulticam</a><br>
+            ТГ: <a href="https://t.me/allmulticam">t.me/allmulticam</a><br>
+            Дзен: <a href="https://dzen.ru/allmulticam">dzen.ru/allmulticam</a><br>
+            YouTube: <a href="https://youtube.com/allmulticam">youtube.com/allmulticam</a>
+        </div>
+        <p>Вывод: Глубокая экспертиза, статьи, идеальное оформление карточек и видео.</p>
+    </div>
+
+    <!-- БЛОК 2 -->
+    <div class="section-header">2. Tone of Voice (ToV)</div>
+    
+    <div class="card">
+        <h2>Концепция: «Свой среди своих» + «Эксперт-инструктор»</h2>
+        <p>Забываем канцелярит. Представляем общение с другом, который пришел за советом по снаряжению.</p>
+        
+        <div class="tov-grid" style="margin-top:20px;">
+            <div class="tov-card">
+                <span class="rubric-title">Без занудства</span>
+                Объясняем физику процесса (почему стропа 500d лучше 1000d под задачу).
+            </div>
+            <div class="tov-card">
+                <span class="rubric-title">Лаконичность</span>
+                Без воды и лишних эмодзи. Коротко, ясно, по делу. Мужественный стиль.
+            </div>
+            <div class="tov-card">
+                <span class="rubric-title">Честность</span>
+                Пишем про минусы. Аудитория ценит правду о весе или износе.
+            </div>
+        </div>
+
+        <div class="comparison">
+            <div class="old-text">Вместо: "Купить бронеплиту по выгодной цене"</div>
+            <div class="new-text">Пишем: "Плита 4-го класса. Выдерживает СВД с 10 метров. Вес — 2.7 кг. Если таскать сутками — плечи скажут спасибо."</div>
+        </div>
+    </div>
+
+    <!-- БЛОК 3 -->
+    <div class="section-header">3. Рубрикатор (Контент-план)</div>
+
+    <div class="card">
+        <div class="rubric-category">
+            <span class="rubric-title">А. Продающий контент (20-30%)</span>
+            <p>Презентация решения проблемы, а не просто фото товара.</p>
+            <ul>
+                <li><strong>Решение задач:</strong> Пост о том, для каких условий нужен товар.
+                    <div class="example-box">Пример: «Если ты штурмовик — бери разгрузку с быстрыми сбросами. Смотрим новинку: Х».</div>
+                </li>
+                <li><strong>Новинка/Поступление:</strong> Высокое качество фото, артикул, размеры, совместимость, цена.</li>
+                <li><strong>Акция / Уценка:</strong> Честная причина (помята коробка, витринный образец).</li>
+            </ul>
+        </div>
+
+        <div class="rubric-category">
+            <span class="rubric-title">Б. Экспертный контент (40%) — Ядро</span>
+            <p>Обучаем аудиторию, выделяемся на фоне "витрин".</p>
+            <ul>
+                <li><strong>Матчасть:</strong> Сравнение технологий. Кордура vs Оксфорд. Типы пряжек. Почему YKK — стандарт.</li>
+                <li><strong>Разбор снаряжения:</strong> Почему аптечка именно слева, а подсумки под гранаты справа на поясе.</li>
+                <li><strong>Тест-драйв:</strong> Контент с полей. Грязь, царапины, живучесть после года использования.</li>
+                <li><strong>Советы по подбору:</strong> Как пристрелять коллиматор. Что взять новичку на первый выезд.</li>
+            </ul>
+        </div>
+
+        <div class="rubric-category">
+            <span class="rubric-title">В. Вовлекающий контент (20%)</span>
+            <ul>
+                <li><strong>Битва калибров / брендов:</strong> СМЕРШ против М32. Провоцируем дискуссии.</li>
+                <li><strong>Субботнее чтиво:</strong> Военная история. Как появился камуфляж, почему ППШ был эффективнее аналогов.</li>
+            </ul>
+        </div>
+
+        <div class="rubric-category">
+            <span class="rubric-title">Г. Имиджевый контент (10%)</span>
+            <ul>
+                <li><strong>Наши люди / Спецзаказ:</strong> Кейсы. "Собрали комплект для снайпера в зону СВО". "Сделали шевроны для отряда Х".</li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 </body>
